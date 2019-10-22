@@ -119,3 +119,6 @@ LS_COLORS=$LS_COLORS:'di=1;32:' ; export LS_COLORS
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+# ROS
+source /opt/ros/kinetic/setup.bash
