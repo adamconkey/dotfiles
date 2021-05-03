@@ -2,9 +2,19 @@
 (package-initialize)
 
 (custom-set-variables
- '(custom-enabled-themes (quote (misterioso)))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(custom-enabled-themes '(tango-dark))
  '(inhibit-startup-screen t))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 
@@ -25,11 +35,12 @@
 ;; Packages installed using Straight
 (straight-use-package 'helm)
 (straight-use-package 'auctex)
-;(straight-use-package 'latex-preview-pane)
+(straight-use-package 'helm-bibtex)
 (straight-use-package 'exec-path-from-shell)
 
 ;; Mainly for Mac
 (exec-path-from-shell-initialize)
+(setq default-directory "~/")
 
 ;; Helm config
 (helm-mode 1)
@@ -57,9 +68,21 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
-;; Set latex viewer for Mac
-(setq TeX-view-program-list '(("Skim" "open -a Skim.app %o")))
-(setq TeX-view-program-selection '((output-pdf "Skim")))
-(setq fill-column 80)
-(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+(setq TeX-view-program-list '(("Skim" "open -a Skim.app %o"))) ; use Skim on Mac
+(setq TeX-view-program-selection '((output-pdf "Skim"))) ; use Skim on Mac
+(setq-default fill-column 80) ; hard wrap at this many chars
+(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill) ; hard line wraps
+(setq TeX-brace-indent-level 0) ; no indents e.g. footnote on hard line wrap
+(setq LaTeX-item-indent 0) ; 2 spaces for \item (default -2)
+; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
+
+;; Helm-bibtex
+(require 'helm-bibtex)
+(autoload 'helm-bibtex "helm-bibtex" "" t)
+(global-set-key (kbd "C-c [") 'helm-bibtex-with-local-bibliography)
+(setq bibtex-completion-cite-prompt-for-optional-arguments nil)
+(helm-delete-action-from-source "Insert Citation" helm-source-bibtex)
+(helm-add-action-to-source "Insert Citation"
+                           'helm-bibtex-insert-citation
+                            helm-source-bibtex 0)
