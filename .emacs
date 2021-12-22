@@ -1,22 +1,6 @@
 
 (package-initialize)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes '(tango-dark))
- '(inhibit-startup-screen t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 
 ;; Install the Straight package manager
 (defvar bootstrap-version)
@@ -37,10 +21,25 @@
 (straight-use-package 'auctex)
 (straight-use-package 'helm-bibtex)
 (straight-use-package 'exec-path-from-shell)
+(straight-use-package 'vterm)
+(straight-use-package 'doom-themes)
+
+
+;; Appearance
+(load-theme 'doom-snazzy t)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+
+
+;; General setup
+(setq inhibit-startup-screen t)
+
 
 ;; Mainly for Mac
 (exec-path-from-shell-initialize)
 (setq default-directory "~/")
+
 
 ;; Helm config
 (helm-mode 1)
@@ -49,19 +48,17 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (setq helm-buffer-max-length nil)
 
+
 ;; Avoid mixing tabs/spaces
 (setq-default indent-tabs-mode nil)
 
-;; No toolbar, menubar, or scrollbar
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(toggle-scroll-bar -1)
 
 ;; C++
 (defun my-c++-mode-hook ()
   (setq c-basic-offset 2)
   (c-set-offset 'substatement-open 0))
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
 
 ;; LaTeX
 (setq TeX-auto-save t)
@@ -86,3 +83,7 @@
 (helm-add-action-to-source "Insert Citation"
                            'helm-bibtex-insert-citation
                             helm-source-bibtex 0)
+
+
+;; vterm
+(setq vterm-shell "/usr/local/bin/bash")  ; mac brew installed version

@@ -109,10 +109,25 @@ if ! shopt -oq posix; then
 fi
 
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/adam/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/adam/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/adam/.miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/adam/.miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+
 
 # Set env vars
-export ROSCONSOLE_FORMAT='[${severity}] [${time}] [${node}]: ${message}'
-export CATKIN_HOME="$HOME/ros_ws/src"
 LS_COLORS=$LS_COLORS:'di=1;32:' ; export LS_COLORS
 
 # Enable bash aliases
@@ -120,5 +135,21 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# ROS
-source /opt/ros/kinetic/setup.bash
+
+vterm_printf(){
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+
+vterm_prompt_end(){
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+}
+PS1=$PS1'\[$(vterm_prompt_end)\]'
