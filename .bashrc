@@ -153,3 +153,9 @@ vterm_prompt_end(){
     vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
 }
 PS1=$PS1'\[$(vterm_prompt_end)\]'
+
+
+# Needed on mac to git bash tab completion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
