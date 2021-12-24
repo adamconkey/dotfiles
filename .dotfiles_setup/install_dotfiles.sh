@@ -9,7 +9,7 @@ function dotfiles {
 }
 
 
-DOTFILES_BACKUP_DIR="$HOME/.dotfiles-backup"
+DOTFILES_BACKUP_DIR="$HOME/.dotfiles_backup"
 
 # Clone bare git repo to hidden folder in home
 git clone --bare git@github.com:adamconkey/dotfiles.git $HOME/.dotfiles
