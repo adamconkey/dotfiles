@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Based on script from here: https://www.atlassian.com/git/tutorials/dotfiles
+
 set -u  # exit on unset vars
 
 function dotfiles {
