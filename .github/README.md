@@ -2,7 +2,7 @@
 
 Clone this repo to a hidden folder in your home directory
 ```bash
-git clone git@github.com:adamconkey/dotfiles.git $HOME/.dotfiles
+git clone --bare git@github.com:adamconkey/dotfiles.git $HOME/.dotfiles
 ```
 
 Run the install script
