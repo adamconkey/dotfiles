@@ -29,7 +29,7 @@
 (load-theme 'doom-snazzy t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
-(toggle-scroll-bar -1)
+;; (toggle-scroll-bar -1)
 
 
 ;; General setup
@@ -83,7 +83,3 @@
 (helm-add-action-to-source "Insert Citation"
                            'helm-bibtex-insert-citation
                             helm-source-bibtex 0)
-
-
-;; vterm
-(setq vterm-shell "/usr/local/bin/bash")  ; mac brew installed version
