@@ -16,5 +16,6 @@
 #    - https://www.atlassian.com/git/tutorials/dotfiles
 # Note the 'dotfiles' alias will be in .bash_aliases, use that to manage dotfiles
 git init --bare $HOME/.dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+dotfiles checkout main
 dotfiles config --local status.showUntrackedFiles no
