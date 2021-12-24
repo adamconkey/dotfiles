@@ -1,5 +1,5 @@
 # dotfiles
-My personal dotfiles. You probably don't want to directly use these files, but you're welcome to poke around.
+My personal dotfiles. I manage these in my home folder with a bare git repo (see [Resources](#resources) below). You probably don't want to directly use these files, but you're welcome to poke around.
 
 ## Installation
 
@@ -17,3 +17,4 @@ then you already have a `.dotfiles` folder in your home directory. The script co
 ## Resources
   - https://www.atlassian.com/git/tutorials/dotfiles
   - https://engineering.kalkayan.io/posts/setting-up-a-development-machine-part-3/
+  - https://github.com/kalkayan/dotfiles
