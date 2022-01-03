@@ -2,6 +2,8 @@
 (package-initialize)
 
 
+;; STRAIGHT PACKAGE MANAGEMENT ============================================================
+
 ;; Install the Straight package manager
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -24,6 +26,23 @@
 (straight-use-package 'vterm)
 (straight-use-package 'doom-themes)
 (straight-use-package 'windresize)
+
+;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
+
+
+
+;; MACROS ================================================================================
+
+;; with-system: check OS to apply different settings (gnu/linux, darwin)
+;;   https://stackoverflow.com/a/26137517/3711266
+(defmacro with-system (type &rest body)
+  "Evaluate BODY if `system-type' equals TYPE."
+  (declare (indent defun))
+  `(when (eq system-type ',type)
+     ,@body))
+
+;; END MACROS ============================================================================
+
 
 
 ;; Appearance
@@ -66,11 +85,10 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
-(if (eq system-type 'darwin)
-    (progn
-      ;; use Skim on Mac
-      (setq TeX-view-program-list '(("Skim" "open -a Skim.app %o")))
-      (setq TeX-view-program-selection '((output-pdf "Skim")))))
+(with-system darwin
+  ;; use Skim on Mac
+  (setq TeX-view-program-list '(("Skim" "open -a Skim.app %o")))
+  (setq TeX-view-program-selection '((output-pdf "Skim"))))
 (setq-default fill-column 80) ; hard wrap at this many chars
 (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill) ; hard line wraps
 (setq TeX-brace-indent-level 0) ; no indents e.g. footnote on hard line wrap
