@@ -66,8 +66,11 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
-(setq TeX-view-program-list '(("Skim" "open -a Skim.app %o"))) ; use Skim on Mac
-(setq TeX-view-program-selection '((output-pdf "Skim"))) ; use Skim on Mac
+(if (eq system-type 'darwin)
+    (progn
+      ;; use Skim on Mac
+      (setq TeX-view-program-list '(("Skim" "open -a Skim.app %o")))
+      (setq TeX-view-program-selection '((output-pdf "Skim")))))
 (setq-default fill-column 80) ; hard wrap at this many chars
 (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill) ; hard line wraps
 (setq TeX-brace-indent-level 0) ; no indents e.g. footnote on hard line wrap
