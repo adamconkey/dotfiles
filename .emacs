@@ -93,8 +93,10 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill) ; hard line wraps
 (setq TeX-brace-indent-level 0) ; no indents e.g. footnote on hard line wrap
 (setq LaTeX-item-indent 0) ; 2 spaces for \item (default -2)
-; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-
+;; auto-replace $.$ math env with \(.\)
+(add-hook 'LaTeX-mode-hook
+          (lambda () (set (make-variable-buffer-local 'TeX-electric-math)
+                          (cons "\\(" "\\)"))))
 
 ;; Helm-bibtex
 (require 'helm-bibtex)
