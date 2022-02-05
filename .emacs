@@ -107,3 +107,16 @@
 (helm-add-action-to-source "Insert Citation"
                            'helm-bibtex-insert-citation
                             helm-source-bibtex 0)
+
+
+;; vterm
+(defun vterm-named (term-name)
+  "Generate a terminal with buffer name TERM-NAME."
+  (interactive "sTerminal name: ")
+  (vterm (concat "vterm-" term-name)))
+
+(defun dev-mode ()
+  (interactive)
+  (split-window-right 100)
+  (other-window 1)
+  (vterm))
