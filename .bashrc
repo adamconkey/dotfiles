@@ -109,7 +109,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
 # Set env vars
 LS_COLORS=$LS_COLORS:'di=1;32:' ; export LS_COLORS
 
@@ -118,6 +117,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
 
 
 # >>> conda initialize >>>
@@ -134,28 +136,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-if [ -n "$INSIDE_EMACS" ]; then
-    vterm_printf(){
-        if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
-            # Tell tmux to pass the escape sequences through
-            printf "\ePtmux;\e\e]%s\007\e\\" "$1"
-        elif [ "${TERM%%-*}" = "screen" ]; then
-            # GNU screen (screen, screen-256color, screen-256color-bce)
-            printf "\eP\e]%s\007\e\\" "$1"
-        else
-            printf "\e]%s\e\\" "$1"
-        fi
-    }
-    
-    
-    vterm_prompt_end(){
-        vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
-    }
-    
-    PS1=$PS1'\[$(vterm_prompt_end)\]'
-fi
 
 
 # Needed on mac to git bash tab completion
