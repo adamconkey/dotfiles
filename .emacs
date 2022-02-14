@@ -120,3 +120,8 @@
   (split-window-right 100)
   (other-window 1)
   (vterm))
+
+
+;; This was necessary to avoid a helm error on glados:
+;;     https://emacs.stackexchange.com/questions/65069/helm-installing-issues
+(setq while-no-input-ignore-events '())
