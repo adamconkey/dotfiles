@@ -26,6 +26,7 @@
 (straight-use-package 'vterm)
 (straight-use-package 'doom-themes)
 (straight-use-package 'windresize)
+(straight-use-package 'cython-mode)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
