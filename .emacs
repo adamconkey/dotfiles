@@ -126,3 +126,8 @@
 ;; This was necessary to avoid a helm error on glados:
 ;;     https://emacs.stackexchange.com/questions/65069/helm-installing-issues
 (setq while-no-input-ignore-events '())
+
+
+(with-system darwin
+  ;; Avoids getting lots of warnings/errors when install emacs --with-native-comp
+  (setq native-comp-async-report-warnings-errors nil))
