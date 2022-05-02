@@ -142,6 +142,3 @@ unset __conda_setup
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
-
-
-export PYTHONPATH="$HOME/source_code/manipulation":${PYTHONPATH}
