@@ -2,6 +2,8 @@ alias rmtmp="rm *~"
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
+# See this for using exa on Ubuntu earlier than 20.10:
+    https://github.com/ogham/exa/issues/783#issuecomment-756608052
 # alias ls="ls --color=auto"
 alias ls='exa'
 alias la='exa -a'
