@@ -9,6 +9,8 @@ alias ls='exa'
 alias la='exa -a'
 alias ll='exa -lah --git'
 
+alias du="dutree"
+
 alias emacs="emacs -nw"
 
 alias jnb="jupyter notebook --no-browser"
@@ -19,3 +21,7 @@ if [ "$(uname -s)" == "Linux" ]; then
 else
   alias cat="bat"
 fi
+
+conda-ld () {
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.miniconda3/envs/ll4ma/lib
+}
