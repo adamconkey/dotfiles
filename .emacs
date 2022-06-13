@@ -131,3 +131,9 @@
 (with-system darwin
   ;; Avoids getting lots of warnings/errors when install emacs --with-native-comp
   (setq native-comp-async-report-warnings-errors nil))
+
+
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
