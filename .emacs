@@ -28,6 +28,7 @@
 (straight-use-package 'windresize)
 (straight-use-package 'cython-mode)
 (straight-use-package 'magit)
+(straight-use-package 'yaml-mode)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
