@@ -27,8 +27,9 @@
 (straight-use-package 'doom-themes)
 (straight-use-package 'windresize)
 (straight-use-package 'cython-mode)
-(straight-use-package 'magit)
+;; (straight-use-package 'magit)
 (straight-use-package 'yaml-mode)
+(straight-use-package 'org-bullets)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
@@ -139,3 +140,7 @@
 ;; (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 ;; (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 ;; (setq scroll-step 1) ;; keyboard scroll one line at a time
+
+
+;; org mode
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
