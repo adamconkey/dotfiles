@@ -143,4 +143,22 @@
 
 
 ;; org mode
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(add-hook 'org-mode-hook 'org-bullets-mode)
+(setq org-startup-indented t)
+(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)")))
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "IndianRed" :weight bold))
+        ("STARTED" . (:foreground "LimeGreen" :weight bold))
+        ))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-files '("~/multisensory_learning_paper/plan.org")))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
