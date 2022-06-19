@@ -144,6 +144,7 @@
 
 ;; org mode
 (add-hook 'org-mode-hook 'org-bullets-mode)
+(add-hook 'org-mode-hook 'turn-on-auto-fill) ; hard line wraps
 (setq org-startup-indented t)
 (setq org-todo-keywords '((sequence "TODO(t)" "OPEN(o)" "|" "DONE(d)")))
 (setq org-todo-keyword-faces
