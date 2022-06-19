@@ -145,11 +145,13 @@
 ;; org mode
 (add-hook 'org-mode-hook 'org-bullets-mode)
 (setq org-startup-indented t)
-(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)")))
+(setq org-todo-keywords '((sequence "TODO(t)" "OPEN(o)" "|" "DONE(d)")))
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "IndianRed" :weight bold))
-        ("STARTED" . (:foreground "LimeGreen" :weight bold))
+        ("OPEN" . (:foreground "LimeGreen" :weight bold))
         ))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
