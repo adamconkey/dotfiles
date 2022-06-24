@@ -80,7 +80,8 @@
 ;; C++
 (defun my-c++-mode-hook ()
   (setq c-basic-offset 2)
-  (c-set-offset 'substatement-open 0))
+  (c-set-offset 'substatement-open 0)
+  (c-set-offset 'arglist-intro '+))
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 
