@@ -30,6 +30,7 @@
 ;; (straight-use-package 'magit)
 (straight-use-package 'yaml-mode)
 (straight-use-package 'org-bullets)
+(straight-use-package 'org-fancy-priorities)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
@@ -145,6 +146,7 @@
 
 ;; org mode
 (add-hook 'org-mode-hook 'org-bullets-mode)
+(add-hook 'org-mode-hook 'org-fancy-priorities-mode)
 (add-hook 'org-mode-hook 'turn-on-auto-fill) ; hard line wraps
 (setq org-startup-indented t)
 (setq org-todo-keywords '((sequence "TODO(t)" "OPEN(o)" "|" "DONE(d)")))
@@ -152,7 +154,14 @@
       '(("TODO" . (:foreground "IndianRed" :weight bold))
         ("OPEN" . (:foreground "LimeGreen" :weight bold))
         ))
-(require 'org-tempo)
+(require 'org-tempo)  ; Expand quote blocks
+
+(setq org-priority-faces '((?A . (:foreground "black" :weight bold :background "#c7c7c7"))
+                           (?B . (:foreground "black" :weight bold :background "#92bfe8"))
+                           (?C . (:foreground "black" :weight bold :background "#e8e592"))))
+(setq org-fancy-priorities-list '((?A . "HARO")
+                                  (?B . "GLADOS")
+                                  (?C . "TOBOR")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
