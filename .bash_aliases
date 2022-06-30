@@ -15,7 +15,6 @@ alias emacs="emacs -nw"
 
 alias jnb="jupyter notebook --no-browser"
 
-
 if [ "$(uname -s)" == "Linux" ]; then
   alias cat="batcat"
 else
