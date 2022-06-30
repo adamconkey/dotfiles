@@ -151,7 +151,7 @@
       '(("TODO" . (:foreground "IndianRed" :weight bold))
         ("OPEN" . (:foreground "LimeGreen" :weight bold))
         ))
-
+(require 'org-tempo)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
