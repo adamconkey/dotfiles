@@ -59,6 +59,8 @@
 
 ;; General setup
 (setq inhibit-startup-screen t)
+;; Auto-load files when they've changed on disk
+(global-auto-revert-mode t)
 
 
 ;; Mainly for Mac
