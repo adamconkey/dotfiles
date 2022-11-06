@@ -27,7 +27,6 @@
 (straight-use-package 'doom-themes)
 (straight-use-package 'windresize)
 (straight-use-package 'cython-mode)
-;; (straight-use-package 'magit)
 (straight-use-package 'yaml-mode)
 (straight-use-package 'org-bullets)
 (straight-use-package 'org-fancy-priorities)
@@ -151,29 +150,3 @@
 (add-hook 'org-mode-hook 'org-fancy-priorities-mode)
 (add-hook 'org-mode-hook 'turn-on-auto-fill) ; hard line wraps
 (setq org-startup-indented t)
-(setq org-todo-keywords '((sequence "TODO(t)" "OPEN(o)" "|" "DONE(d)")))
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "IndianRed" :weight bold))
-        ("OPEN" . (:foreground "LimeGreen" :weight bold))
-        ))
-(require 'org-tempo)  ; Expand quote blocks
-
-(setq org-priority-faces '((?A . (:foreground "black" :weight bold :background "#c7c7c7"))
-                           (?B . (:foreground "black" :weight bold :background "#92bfe8"))
-                           (?C . (:foreground "black" :weight bold :background "#e8e592"))))
-(setq org-fancy-priorities-list '((?A . "HARO")
-                                  (?B . "GLADOS")
-                                  (?C . "TOBOR")))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files '("~/multisensory_learning_paper/plan.org")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
