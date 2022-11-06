@@ -14,11 +14,18 @@ alias emacs="emacs -nw"
 
 alias jnb="jupyter notebook --no-browser"
 
-if [ "$(uname -s)" == "Linux" ]; then
-  alias cat="batcat"
-else
-  alias cat="bat"
-fi
+
+# I had a panic using the apt install of bat, installing the release
+# as suggested here worked:
+#     https://github.com/sharkdp/bat/issues/2317#issuecomment-1248343739
+# Note if you do that, you can just use bat on linux instead of batcat
+
+# if [ "$(uname -s)" == "Linux" ]; then
+#   alias cat="batcat"
+# else
+#   alias cat="bat"
+# fi
+alias cat="bat"
 
 conda-ld () {
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.miniconda3/envs/ll4ma/lib
