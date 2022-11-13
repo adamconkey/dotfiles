@@ -122,23 +122,13 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/adam/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/adam/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/adam/.miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/adam/.miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 
 # Needed on mac to git bash tab completion
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+
+# Make emacs the default editor
+export EDITOR="emacs -nw"
