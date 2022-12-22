@@ -60,7 +60,9 @@
 (setq inhibit-startup-screen t)
 ;; Auto-load files when they've changed on disk
 (global-auto-revert-mode t)
-
+;; Enable shift+errors for window navigation
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 ;; Mainly for Mac
 (exec-path-from-shell-initialize)
