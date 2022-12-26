@@ -30,6 +30,7 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'org-bullets)
 (straight-use-package 'org-fancy-priorities)
+(straight-use-package 'rust-mode)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
