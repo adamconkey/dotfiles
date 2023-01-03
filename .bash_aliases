@@ -6,7 +6,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 #     https://github.com/ogham/exa/issues/783#issuecomment-877973708
 alias ls='exa'
 alias la='exa -a'
-alias ll='exa -lah --git'
+alias ll='exa -lagh --git'
 
 alias du="dutree"
 
