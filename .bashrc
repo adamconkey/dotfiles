@@ -122,13 +122,19 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 
-
-
 # Needed on mac to git bash tab completion
 if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+    . ~/.git-completion.bash
 fi
 
 
 # Make emacs the default editor
 export EDITOR="emacs -nw"
+
+# Source cargo (rust)  packages if they exist
+if [ -d $HOME/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
+if [ -d $HOME/.cargo/bin ]; then
+    export PATH=$PATH:$HOME/.cargo/bin
+fi
