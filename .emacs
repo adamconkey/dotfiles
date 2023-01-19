@@ -86,6 +86,8 @@
 ;; C++
 (setq c-default-style "linux"
       c-basic-offset 4)
+; Make .h files be C++ mode
+(setq auto-mode-alist(cons '("\\.h$"   . c++-mode)  auto-mode-alist))
 
 
 ;; LaTeX
