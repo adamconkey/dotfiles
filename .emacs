@@ -31,6 +31,7 @@
 (straight-use-package 'org-bullets)
 (straight-use-package 'org-fancy-priorities)
 (straight-use-package 'rust-mode)
+(straight-use-package 'cmake-mode)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
@@ -83,11 +84,8 @@
 
 
 ;; C++
-(defun my-c++-mode-hook ()
-  (setq c-basic-offset 2)
-  (c-set-offset 'substatement-open 0)
-  (c-set-offset 'arglist-intro '+))
-(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(setq c-default-style "linux"
+      c-basic-offset 4)
 
 
 ;; LaTeX
