@@ -20,16 +20,12 @@
 
 ;; Packages installed using Straight
 (straight-use-package 'helm)
-(straight-use-package 'auctex)
-(straight-use-package 'helm-bibtex)
 (straight-use-package 'exec-path-from-shell)
 (straight-use-package 'vterm)
 (straight-use-package 'doom-themes)
 (straight-use-package 'windresize)
 (straight-use-package 'cython-mode)
 (straight-use-package 'yaml-mode)
-(straight-use-package 'org-bullets)
-(straight-use-package 'org-fancy-priorities)
 (straight-use-package 'rust-mode)
 (straight-use-package 'cmake-mode)
 
@@ -90,48 +86,6 @@
 (setq auto-mode-alist(cons '("\\.h$"   . c++-mode)  auto-mode-alist))
 
 
-;; LaTeX
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-(setq TeX-PDF-mode t)
-(with-system darwin
-  ;; use Skim on Mac
-  (setq TeX-view-program-list '(("Skim" "open -a Skim.app %o")))
-  (setq TeX-view-program-selection '((output-pdf "Skim"))))
-(setq-default fill-column 80) ; hard wrap at this many chars
-(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill) ; hard line wraps
-(setq TeX-brace-indent-level 0) ; no indents e.g. footnote on hard line wrap
-(setq LaTeX-item-indent 0) ; 2 spaces for \item (default -2)
-;; auto-replace $.$ math env with \(.\)
-(add-hook 'LaTeX-mode-hook
-          (lambda () (set (make-variable-buffer-local 'TeX-electric-math)
-                          (cons "\\(" "\\)"))))
-
-;; Helm-bibtex
-(require 'helm-bibtex)
-(autoload 'helm-bibtex "helm-bibtex" "" t)
-(global-set-key (kbd "C-c [") 'helm-bibtex-with-local-bibliography)
-(setq bibtex-completion-cite-prompt-for-optional-arguments nil)
-(helm-delete-action-from-source "Insert Citation" helm-source-bibtex)
-(helm-add-action-to-source "Insert Citation"
-                           'helm-bibtex-insert-citation
-                            helm-source-bibtex 0)
-
-
-;; vterm
-(defun vterm-named (term-name)
-  "Generate a terminal with buffer name TERM-NAME."
-  (interactive "sTerminal name: ")
-  (vterm (concat "vterm-" term-name)))
-
-(defun dev-mode ()
-  (interactive)
-  (split-window-right 100)
-  (other-window 1)
-  (vterm))
-
-
 ;; This was necessary to avoid a helm error on glados:
 ;;     https://emacs.stackexchange.com/questions/65069/helm-installing-issues
 (setq while-no-input-ignore-events '())
@@ -147,9 +101,3 @@
 ;; (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 ;; (setq scroll-step 1) ;; keyboard scroll one line at a time
 
-
-;; org mode
-(add-hook 'org-mode-hook 'org-bullets-mode)
-(add-hook 'org-mode-hook 'org-fancy-priorities-mode)
-(add-hook 'org-mode-hook 'turn-on-auto-fill) ; hard line wraps
-(setq org-startup-indented t)
