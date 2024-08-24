@@ -19,3 +19,5 @@ alias emacs="emacs -nw"
 
 # Pretty-print cat
 alias cat="bat"
+
+alias ta="tmux attach"
