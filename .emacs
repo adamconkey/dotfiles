@@ -75,6 +75,9 @@
 (setq helm-buffer-max-length nil)
 
 
+;; Coding
+(electric-pair-mode 1)
+
 ;; Avoid mixing tabs/spaces
 (setq-default indent-tabs-mode nil)
 
