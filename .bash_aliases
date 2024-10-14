@@ -21,3 +21,5 @@ alias emacs="emacs -nw"
 alias cat="bat"
 
 alias ta="tmux attach"
+
+alias lg="lazygit"
