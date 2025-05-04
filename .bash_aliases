@@ -11,6 +11,7 @@ alias ll='exa -lah --git'
 alias du="dutree"
 
 alias emacs="emacs -nw"
+alias lg="lazygit"
 
 alias jnb="jupyter notebook --no-browser"
 
