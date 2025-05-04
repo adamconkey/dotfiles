@@ -132,9 +132,10 @@ fi
 export EDITOR="emacs"
 
 # Source cargo (rust)  packages if they exist
-if [ -d $HOME/.cargo ]; then
+if [ -d $HOME/.cargo/env ]; then
     . "$HOME/.cargo/env"
 fi
+
 
 export PATH=$PATH:/opt/X11/bin
 

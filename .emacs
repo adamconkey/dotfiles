@@ -20,17 +20,14 @@
 
 ;; Packages installed using Straight
 (straight-use-package 'helm)
-(straight-use-package 'auctex)
-(straight-use-package 'helm-bibtex)
 (straight-use-package 'exec-path-from-shell)
 (straight-use-package 'vterm)
 (straight-use-package 'doom-themes)
 (straight-use-package 'windresize)
 (straight-use-package 'cython-mode)
 (straight-use-package 'yaml-mode)
-(straight-use-package 'org-bullets)
-(straight-use-package 'org-fancy-priorities)
 (straight-use-package 'rust-mode)
+(straight-use-package 'cmake-mode)
 
 ;; END STRAIGHT PACKAGE MANAGEMENT =======================================================
 
@@ -77,6 +74,9 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (setq helm-buffer-max-length nil)
 
+
+;; Coding
+(electric-pair-mode 1)
 
 ;; Avoid mixing tabs/spaces
 (setq-default indent-tabs-mode nil)
@@ -150,9 +150,3 @@
 ;; (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 ;; (setq scroll-step 1) ;; keyboard scroll one line at a time
 
-
-;; org mode
-(add-hook 'org-mode-hook 'org-bullets-mode)
-(add-hook 'org-mode-hook 'org-fancy-priorities-mode)
-(add-hook 'org-mode-hook 'turn-on-auto-fill) ; hard line wraps
-(setq org-startup-indented t)
