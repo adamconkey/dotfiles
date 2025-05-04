@@ -90,6 +90,9 @@
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 
+;; Coding
+(electric-pair-mode 1)
+
 ;; LaTeX
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
